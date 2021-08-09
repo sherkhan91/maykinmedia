@@ -150,9 +150,10 @@ def save_to_models():
    
     save_cities_to_db(unique_cities)
     save_hotels_to_db(unique_hotels)
+    print("fetching data and saving into database!")
     
 
-save_to_models()
+# save_to_models()
 
 def main():
     print("hi")

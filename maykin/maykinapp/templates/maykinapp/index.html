@@ -1,8 +1,44 @@
 <html>
-<body>
-<h1>hello, welcome to MaykinMedia</h1>
-{% for name in name_list %}
-<li>{{name}}</li>
+    <head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            </style>
+    </head>
+<body style="background-color: lightblue;">
+<h1><center>hello, welcome to MaykinMedia</center></h1>
+<h1><center>Choose any of the city from below to view all the hotels in city.</center></h1>
+
+<center><label for="cities">Please choose a city:</label></center>
+<form action="/maykinapp/" method="post">
+    {% csrf_token %}
+<center><select name="cities" id="cities">
+{% for city in cities %}
+<option value={{city}}>{{city}}</option>
 {% endfor %}
+</select>
+<input type="submit" value="Select">
+</center>
+</form>
+
+<center><table style="width:50%">
+    <tr>
+      <th>City</th>
+      <th>Hotel code</th> 
+      <th>Hotel Name</th>
+    </tr>
+    {% for hotel in hotels%}
+    <tr>
+    
+      <td>{{hotel.city}}</td>
+      <td>{{hotel.city_hotel_code}}</td>
+      <td>{{hotel.hotel_name}}</td>
+      
+    </tr>
+    {% endfor %}
+</table></center>
+
 </body>
 </html>
